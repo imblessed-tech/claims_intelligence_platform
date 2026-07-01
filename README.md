@@ -610,7 +610,6 @@ The platform is configured for production-grade deployments and is live for user
 ---
 
 ## Author
-* **Position:** Senior Data Scientist | AI Engineer
 * **GitHub:** [github.com/imblessed-tech](https://github.com/imblessed-tech)
 
 ---
