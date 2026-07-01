@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+pandas
+numpy
+pydantic
+pydantic-settings
+starlette
+scikit-learn
+joblib
+matplotlib
+scipy
+python-multipart
+spacy
+python-dotenv
+httpx
+structlog
+prometheus-client
