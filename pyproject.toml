@@ -1,0 +1,61 @@
+[project]
+name = "claim-intelligence"
+version = "1.0.0"
+requires-python = ">=3.11"
+
+dependencies = [
+    "fastapi", 
+    "uvicorn",
+    "pandas", 
+    "numpy", 
+    "pydantic", 
+    "pydantic-settings",
+    "starlette",
+    "scikit-learn",
+    "joblib",
+    "matplotlib",
+    "scipy",
+    "python-multipart",
+    "spacy",
+    "en_core_web_sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0.tar.gz",
+    "python-dotenv",
+    "httpx",
+    "structlog",
+    "prometheus-client",
+]
+
+[project.optional-dependencies]
+dev = [
+    "httpx", 
+    "pytest", 
+    "pytest-asyncio", 
+    "pytest-cov",
+    "ruff",
+    "mypy",
+]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+strict = true
+mypy_path = "src"
+explicit_package_bases = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.coverage.report]
+fail_under = 90
+
+[[tool.mypy.overrides]]
+module = ["pandas.*", "numpy.*", "joblib.*"]
+ignore_missing_imports = true
+
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
