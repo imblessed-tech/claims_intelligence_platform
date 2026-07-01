@@ -15,10 +15,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Download spaCy model
 RUN python -m spacy download en_core_web_sm
 
-# Copy source code and models
+# Copy source code, data, and training pipeline
 COPY src/ ./src/
-COPY models/ ./models/
 COPY data/ ./data/
+COPY train.py .
+
+# Train models and generate artifacts during image build
+RUN python train.py
 
 # Set PYTHONPATH so python resolves the claims package under src/
 ENV PYTHONPATH=/app/src
