@@ -567,6 +567,10 @@ The platform is configured for production-grade deployments and is live for user
 * **Interactive Analytics Dashboard (GitHub Pages):** The self-contained HTML analytics dashboard is compiled dynamically by the model training pipeline and served as a static site via GitHub Pages.
 
 ### Live URLs for Testing
+
+> [!NOTE]
+> **Free Tier Spin-Down Delay:** The API is hosted on Render's free tier. If the service is inactive for 15 minutes, it automatically spins down. The first request after a sleep period will experience a **50–60 second "cold start" delay** while the container spins up and loads ML/NLP models into memory. Subsequent requests will execute at normal sub-200ms latency.
+
 * **Interactive Swagger API Documentation:** [claims-intelligence.onrender.com/docs](https://claims-intelligence.onrender.com/docs)
 * **API Telemetry Metrics:** [claims-intelligence.onrender.com/metrics](https://claims-intelligence.onrender.com/metrics)
 * **Static Visual Analytics Dashboard:** [imblessed-tech.github.io/claims_intelligence_platform/](https://imblessed-tech.github.io/claims_intelligence_platform/)
