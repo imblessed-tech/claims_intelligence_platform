@@ -18,7 +18,7 @@ RUN python -m spacy download en_core_web_sm
 # Copy source code and models
 COPY src/ ./src/
 COPY models/ ./models/
-COPY data/claims_with_notes.csv ./data/
+COPY data/ ./data/
 
 # Set PYTHONPATH so python resolves the claims package under src/
 ENV PYTHONPATH=/app/src

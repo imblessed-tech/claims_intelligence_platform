@@ -155,6 +155,12 @@ def main():
     dashboard.generate(dashboard_path)
     logger.info(f"      [OK] Dashboard generated at: {dashboard_path.resolve()}")
 
+    # Generate/update the report inside docs/index.html for GitHub Pages
+    docs_path = settings.BASE_DIR / "docs" / "index.html"
+    docs_path.parent.mkdir(parents=True, exist_ok=True)
+    dashboard.generate(docs_path)
+    logger.info(f"      [OK] GitHub Pages deploy document updated at: {docs_path.resolve()}")
+
     #  Final Summary 
     logger.info("\n" + "=" * 60)
     logger.info("TRAINING COMPLETE - All models saved to models/")
