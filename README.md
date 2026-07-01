@@ -335,6 +335,21 @@ Open in your browser:
 ### `POST /api/claims/predict`
 Accepts a claim and returns a full AI analysis.
 
+**Testing via CLI:**
+* **Linux / macOS (Bash / curl):**
+  ```bash
+  curl -X POST "https://claims-intelligence.onrender.com/claims/predict" \
+    -H "Content-Type: application/json" \
+    -d '{"age": 40, "gender": "Male", "bmi": 28.5, "children": 2, "smoker": true, "region": "Southwest", "clinical_note": "Patient presents with chest tightness."}'
+  ```
+* **Windows (PowerShell):**
+  ```powershell
+  curl -UseBasicParsing -Uri "https://claims-intelligence.onrender.com/claims/predict" `
+    -Method POST `
+    -Headers @{"Content-Type" = "application/json"} `
+    -Body '{"age": 40, "gender": "Male", "bmi": 28.5, "children": 2, "smoker": true, "region": "Southwest", "clinical_note": "Patient presents with chest tightness."}'
+  ```
+
 **Request body:**
 ```json
 {
@@ -544,35 +559,18 @@ The file is entirely self-contained — charts are embedded as base64 images.
 
 ---
 
-## Deployment
+## Deployment & Live Links
 
-### Deploy to Render (free tier)
-1. **Prepare your repository:** Commit `src/`, `requirements.txt`, `Dockerfile`, and `data/insurance.csv` to GitHub.
-2. **Create a Render account:** Visit https://render.com.
-3. **Create a new Web Service:** Connect your repository and choose environment `Docker`.
-4. **Add environment variables:**
-   * `API_HOST=0.0.0.0`
-   * `API_PORT=10000`
+The platform is configured for production-grade deployments and is live for user testing:
 
-### Deploy dashboard to GitHub Pages
-1. Generate the dashboard locally: `python train.py`
-2. Copy the HTML report to a docs folder as `index.html`:
-   ```bash
-   mkdir docs
-   copy reports\dashboards\claims_intelligence_report.html docs\index.html
-   ```
-3. Commit and push:
-   ```bash
-   git add docs/
-   git commit -m "Add dashboard to GitHub Pages"
-   git push origin main
-   ```
-4. Enable GitHub Pages in your repository settings under the `/docs` folder.
+* **Production Backend (Render):** The FastAPI REST API is containerized using Docker and hosted on Render. Render automatically manages build hooks and handles traffic routing to the internal Uvicorn interfaces.
+* **Interactive Analytics Dashboard (GitHub Pages):** The self-contained HTML analytics dashboard is compiled dynamically by the model training pipeline and served as a static site via GitHub Pages.
 
-### Shareable links
-* **Live API:** https://claims-intelligence.onrender.com/docs
-* **Dashboard:** https://yourusername.github.io/claims-intelligence
-* **GitHub:** https://github.com/yourusername/claims-intelligence
+### Live URLs for Testing
+* **Interactive Swagger API Documentation:** [claims-intelligence.onrender.com/docs](https://claims-intelligence.onrender.com/docs)
+* **API Telemetry Metrics:** [claims-intelligence.onrender.com/metrics](https://claims-intelligence.onrender.com/metrics)
+* **Static Visual Analytics Dashboard:** [imblessed-tech.github.io/claims_intelligence_platform/](https://imblessed-tech.github.io/claims_intelligence_platform/)
+* **Source Code Repository:** [github.com/imblessed-tech/claims_intelligence_platform](https://github.com/imblessed-tech/claims_intelligence_platform)
 
 ---
 
@@ -613,8 +611,7 @@ The file is entirely self-contained — charts are embedded as base64 images.
 
 ## Author
 * **Position:** Senior Data Scientist | AI Engineer
-* **GitHub:** [github.com/yourusername](https://github.com/yourusername)
-* **LinkedIn:** [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
+* **GitHub:** [github.com/imblessed-tech](https://github.com/imblessed-tech)
 
 ---
 Built with Python 3.11 · FastAPI · scikit-learn · spaCy · pandas · matplotlib

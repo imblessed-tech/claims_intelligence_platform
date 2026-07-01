@@ -347,13 +347,17 @@ class DashboardGenerator:
     <h2>Claim Approval Analysis</h2>
     <div class="chart-box"><img src="data:image/png;base64,{approval_b64}"></div>
 
-    <!-- Section 5: Clinical Intelligence -->
-    <h2>Clinical Intelligence (NLP)</h2>
-    <div class="chart-box"><img src="data:image/png;base64,{icd_dist_b64}"></div>
-
-    <!-- Section 6: Model Performance -->
-    <h2>Model Performance</h2>
-    <div class="chart-box"><img src="data:image/png;base64,{model_metrics_b64}"></div>
+    <!-- Section 5: Clinical & Model Performance Summaries -->
+    <div class="chart-grid">
+        <div>
+            <h2>Clinical Intelligence (NLP)</h2>
+            <div class="chart-box"><img src="data:image/png;base64,{icd_dist_b64}"></div>
+        </div>
+        <div>
+            <h2>Model Performance</h2>
+            <div class="chart-box"><img src="data:image/png;base64,{model_metrics_b64}"></div>
+        </div>
+    </div>
 
     <div class="footer">Claims Intelligence Platform v1.0 | Powered by Python, FastAPI, scikit-learn</div>
 </body>
