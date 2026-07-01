@@ -20,6 +20,9 @@ COPY src/ ./src/
 COPY models/ ./models/
 COPY data/claims_with_notes.csv ./data/
 
+# Set PYTHONPATH so python resolves the claims package under src/
+ENV PYTHONPATH=/app/src
+
 # Expose the API port
 EXPOSE 8000
 
